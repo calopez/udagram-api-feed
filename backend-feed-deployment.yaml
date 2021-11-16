@@ -15,7 +15,7 @@ spec:
         service: backend-feed
     spec:
       containers:
-        - image: karloslopez/udagram-api-feed:v3
+        - image: karloslopez/udagram-api-feed:v4
           name: backend-feed
           imagePullPolicy: Always
           resources:
@@ -51,26 +51,26 @@ spec:
                 secretKeyRef:
                   name: env-secret
                   key: UDC_JWT_SECRET
-            - name: UDC_POSTGRESS_DB
+            - name: UDC_POSTGRES_DB
               valueFrom:
                 configMapKeyRef:
                   name: env-configmap
-                  key: UDC_POSTGRESS_DB
-            - name: UDC_POSTGRESS_HOST
+                  key: UDC_POSTGRES_DB
+            - name: UDC_POSTGRES_HOST
               valueFrom:
                 configMapKeyRef:
                   name: env-configmap
-                  key: UDC_POSTGRESS_HOST
-            - name: UDC_POSTGRESS_PASSWORD
+                  key: UDC_POSTGRES_HOST
+            - name: UDC_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: env-secret
-                  key: UDC_POSTGRESS_PASSWORD
-            - name: UDC_POSTGRESS_USERNAME
+                  key: UDC_POSTGRES_PASSWORD
+            - name: UDC_POSTGRES_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: env-secret
-                  key: UDC_POSTGRESS_USERNAME
+                  key: UDC_POSTGRES_USERNAME
           volumeMounts:
             - name: aws-secret
               mountPath: "/root/.aws/"
